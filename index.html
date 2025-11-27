@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimplicIT OW Plansoftware</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                SimplicIT
+            </div>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Planning</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Resources</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Instellingen</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 class="page-title">Dashboard</h1>
+                <div class="user-profile">
+                    <!-- Placeholder for user profile -->
+                    <button class="btn btn-primary">Nieuwe Taak</button>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <!-- Dashboard Content -->
+                <div class="card">
+                    <h3>Welkom bij SimplicIT</h3>
+                    <p>Dit is een prototype van de nieuwe front-end.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <!-- Active Projects -->
+                    <div class="card">
+                        <h3>Lopende Projecten</h3>
+                        <ul class="list-group">
+                            <li class="list-item">
+                                <a href="#">Project Alpha</a>
+                                <span class="text-muted">In uitvoering</span>
+                            </li>
+                            <li class="list-item">
+                                <a href="#">Website Redesign</a>
+                                <span class="text-muted">Planning</span>
+                            </li>
+                            <li class="list-item">
+                                <a href="#">Migratie 2025</a>
+                                <span class="text-muted">Review</span>
+                            </li>
+                        </ul>
+                        <div style="margin-top: var(--spacing-md);">
+                            <a href="#" class="btn btn-primary">Alle projecten</a>
+                        </div>
+                    </div>
+
+                    <!-- Recent Changes -->
+                    <div class="card">
+                        <h3>Meest recente wijzigingen</h3>
+                        <ul class="list-group">
+                            <li class="list-item">
+                                <div>
+                                    <div style="font-weight: 500;">Planning bijgewerkt</div>
+                                    <div class="text-muted">Project Alpha - 2 uur geleden</div>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <div>
+                                    <div style="font-weight: 500;">Nieuw document</div>
+                                    <div class="text-muted">Website Redesign - Gisteren</div>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <div>
+                                    <div style="font-weight: 500;">Status gewijzigd</div>
+                                    <div class="text-muted">Migratie 2025 - 2 dagen geleden</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources (Kept as is) -->
+                    <div class="card">
+                        <h3>Resources</h3>
+                        <p>8 Beschikbaar</p>
+                        <div style="margin-top: var(--spacing-md);">
+                            <a href="#" class="btn btn-accent">Beheer Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
