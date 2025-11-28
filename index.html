@@ -21,23 +21,18 @@
             <nav>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <span>Dashboard</span>
+                        <a href="#" class="nav-link active" data-view="dashboard-view">
+                            <span>Regelgeving - projecten</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>Planning</span>
+                        <a href="#" class="nav-link" data-view="toepasbare-regels-view">
+                            <span>Toepasbare regels</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>Resources</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <span>Instellingen</span>
+                        <a href="#" class="nav-link" data-view="community-view">
+                            <span>Community</span>
                         </a>
                     </li>
                 </ul>
@@ -46,75 +41,243 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="top-bar">
-                <h1 class="page-title">Dashboard</h1>
-                <div class="user-profile">
-                    <!-- Placeholder for user profile -->
-                    <button class="btn btn-primary">Nieuwe Taak</button>
-                </div>
-            </header>
+            <div id="dashboard-view">
+                <header class="top-bar">
+                    <h1 class="page-title">Regelgeving - projecten</h1>
+                    <div class="user-profile">
+                        <!-- Placeholder for user profile -->
+                        <button class="btn btn-primary">Nieuwe Taak</button>
+                    </div>
+                </header>
 
-            <div class="content-area">
-                <!-- Dashboard Content -->
-                <div class="card">
-                    <h3>Welkom bij SimplicIT</h3>
-                    <p>Dit is een prototype van de nieuwe front-end.</p>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-                    <!-- Active Projects -->
+                <div class="content-area">
+                    <!-- Dashboard Content -->
                     <div class="card">
-                        <h3>Lopende Projecten</h3>
-                        <ul class="list-group">
-                            <li class="list-item">
-                                <a href="#">Project Alpha</a>
-                                <span class="text-muted">In uitvoering</span>
-                            </li>
-                            <li class="list-item">
-                                <a href="#">Website Redesign</a>
-                                <span class="text-muted">Planning</span>
-                            </li>
-                            <li class="list-item">
-                                <a href="#">Migratie 2025</a>
-                                <span class="text-muted">Review</span>
-                            </li>
-                        </ul>
-                        <div style="margin-top: var(--spacing-md);">
-                            <a href="#" class="btn btn-primary">Alle projecten</a>
+                        <h3>Welkom bij SimplicIT</h3>
+                        <p>Dit is een prototype van de nieuwe front-end.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                        <!-- Active Projects -->
+                        <div class="card">
+                            <h3>Lopende Projecten</h3>
+                            <ul class="list-group">
+                                <li class="list-item">
+                                    <a href="#" class="project-link" data-project="aanleg nieuw winkelcentrum">aanleg
+                                        nieuw winkelcentrum</a>
+                                    <span class="text-muted">2. Ontwerpfase</span>
+                                </li>
+                                <li class="list-item">
+                                    <a href="#" class="project-link"
+                                        data-project="herinrichting centrumgebied">herinrichting centrumgebied</a>
+                                    <span class="text-muted">1. Kennisgeving voornemen wijziging</span>
+                                </li>
+                                <li class="list-item">
+                                    <a href="#" class="project-link" data-project="vergroening buitenwijk">vergroening
+                                        buitenwijk</a>
+                                    <span class="text-muted">3. Vaststelling</span>
+                                </li>
+                            </ul>
+                            <div style="margin-top: var(--spacing-md);">
+                                <a href="#" class="btn btn-primary">Alle projecten</a>
+                            </div>
+                        </div>
+
+                        <!-- Recent Changes -->
+                        <div class="card">
+                            <h3>Meest recente wijzigingen</h3>
+                            <ul class="list-group">
+                                <li class="list-item">
+                                    <div>
+                                        <div style="font-weight: 500;">Planning bijgewerkt</div>
+                                        <div class="text-muted">aanleg nieuw winkelcentrum - 2 uur geleden</div>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div>
+                                        <div style="font-weight: 500;">Nieuw document</div>
+                                        <div class="text-muted">herinrichting centrumgebied - Gisteren</div>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div>
+                                        <div style="font-weight: 500;">Status gewijzigd</div>
+                                        <div class="text-muted">vergroening buitenwijk - 2 dagen geleden</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project View (Initially Hidden) -->
+            <div id="project-view" class="hidden">
+                <header class="top-bar">
+                    <div class="project-header-content">
+                        <button id="back-to-dashboard" class="back-link">
+                            <span style="font-size: 1.2em; margin-right: 0.5rem;">←</span> Terug
+                        </button>
+                        <div class="divider-vertical"></div>
+                        <h1 class="page-title" id="project-title">Project Naam</h1>
+                    </div>
+                </header>
+
+                <div class="content-area">
+                    <!-- Tabs Navigation -->
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" data-tab="projectvoortgang">Projectvoortgang</button>
+                        <button class="tab-btn" data-tab="regelgeving">Regelgeving</button>
+                        <button class="tab-btn" data-tab="objectbeheer">Objectbeheer</button>
+                        <button class="tab-btn" data-tab="publicaties">Publicaties</button>
+                        <button class="tab-btn" data-tab="projectbeheer">Projectbeheer</button>
+                    </div>
+
+                    <!-- Tab Content: Projectvoortgang -->
+                    <div id="projectvoortgang" class="tab-content active">
+                        <div class="card">
+                            <h3>Projectvoortgang</h3>
+                            <div class="progress-tracker">
+                                <!-- Phase 1 -->
+                                <div class="progress-step">
+                                    <div class="step-header">
+                                        <span class="step-title">1. Kennisgeving voornemen wijziging</span>
+                                        <span class="status-badge status-done">Afgerond</span>
+                                    </div>
+                                </div>
+                                <!-- Phase 2 -->
+                                <div class="progress-step">
+                                    <div class="step-header">
+                                        <span class="step-title">2. Ontwerpfase</span>
+                                        <span class="status-badge status-inprogress">In uitvoering</span>
+                                    </div>
+                                </div>
+                                <!-- Phase 3 -->
+                                <div class="progress-step">
+                                    <div class="step-header">
+                                        <span class="step-title">3. Vaststelling</span>
+                                        <span class="status-badge status-todo">TO-DO</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Recent Changes -->
-                    <div class="card">
-                        <h3>Meest recente wijzigingen</h3>
-                        <ul class="list-group">
-                            <li class="list-item">
-                                <div>
-                                    <div style="font-weight: 500;">Planning bijgewerkt</div>
-                                    <div class="text-muted">Project Alpha - 2 uur geleden</div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div>
-                                    <div style="font-weight: 500;">Nieuw document</div>
-                                    <div class="text-muted">Website Redesign - Gisteren</div>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div>
-                                    <div style="font-weight: 500;">Status gewijzigd</div>
-                                    <div class="text-muted">Migratie 2025 - 2 dagen geleden</div>
-                                </div>
-                            </li>
-                        </ul>
+                    <!-- Tab Content: Regelgeving -->
+                    <div id="regelgeving" class="tab-content hidden">
+                        <div class="card">
+                            <h3>Regelgeving Aanpassen</h3>
+                            <p>Hier kan de regelgeving voor het project worden aangepast.</p>
+                            <!-- Placeholder content -->
+                            <div style="margin-top: 1rem;">
+                                <button class="btn btn-primary">Nieuwe Regel Toevoegen</button>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Resources (Kept as is) -->
+                    <!-- Tab Content: Objectbeheer -->
+                    <div id="objectbeheer" class="tab-content hidden">
+                        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+                            <h3>Objectbeheer</h3>
+                            <div class="split-view">
+                                <div class="object-list">
+                                    <h4>Objecten</h4>
+                                    <ul class="list-group">
+                                        <li class="list-item">
+                                            <span>Winkelcentrum</span>
+                                            <button class="btn-icon">📍</button>
+                                        </li>
+                                        <li class="list-item">
+                                            <span>Functie wonen</span>
+                                            <button class="btn-icon">📍</button>
+                                        </li>
+                                        <li class="list-item">
+                                            <span>Provinciale wegen</span>
+                                            <button class="btn-icon">📍</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="map-container">
+                                    <div class="map-placeholder">
+                                        <span>Kaartweergave</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Publicaties -->
+                    <div id="publicaties" class="tab-content hidden">
+                        <div class="card">
+                            <h3>Publicaties</h3>
+                            <p>Beheer hier de publicaties voor dit project.</p>
+                            <div style="margin-top: 1rem;">
+                                <button class="btn btn-primary">Nieuwe Publicatie</button>
+                            </div>
+                            <ul class="list-group" style="margin-top: 1rem;">
+                                <li class="list-item">
+                                    <div>
+                                        <div style="font-weight: 500;">Ontwerpbesluit.pdf</div>
+                                        <div class="text-muted">Gepubliceerd op 12-11-2024</div>
+                                    </div>
+                                    <button class="btn btn-secondary"
+                                        style="padding: 4px 8px; font-size: 0.8rem;">Bekijk</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Projectbeheer -->
+                    <div id="projectbeheer" class="tab-content hidden">
+                        <div class="card">
+                            <h3>Projectbeheer</h3>
+                            <p>Beheer de mensen in dit project.</p>
+                            <!-- Placeholder content -->
+                            <ul class="list-group" style="margin-top: 1rem;">
+                                <li class="list-item">Jan Jansen (Projectleider)</li>
+                                <li class="list-item">Piet Pietersen (Ontwikkelaar)</li>
+                            </ul>
+                            <div style="margin-top: 1rem;">
+                                <button class="btn btn-accent">Persoon Toevoegen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toepasbare Regels View (Initially Hidden) -->
+            <div id="toepasbare-regels-view" class="hidden">
+                <header class="top-bar">
+                    <h1 class="page-title">Toepasbare regels</h1>
+                </header>
+                <div class="content-area">
                     <div class="card">
-                        <h3>Resources</h3>
-                        <p>8 Beschikbaar</p>
-                        <div style="margin-top: var(--spacing-md);">
-                            <a href="#" class="btn btn-accent">Beheer Resources</a>
+                        <p>Hier komt nog functionaliteit voor het inrichten van toepasbare regels</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Community View (Initially Hidden) -->
+            <div id="community-view" class="hidden">
+                <header class="top-bar">
+                    <h1 class="page-title">Community</h1>
+                </header>
+                <div class="content-area">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                        <div class="card">
+                            <h3>Handleidingen</h3>
+                            <p>Bekijk de handleidingen voor het gebruik van de software.</p>
+                            <button class="btn btn-primary" style="margin-top: 1rem;">Naar Handleidingen</button>
+                        </div>
+                        <div class="card">
+                            <h3>Veelgestelde vragen</h3>
+                            <p>Antwoorden op de meest gestelde vragen.</p>
+                            <button class="btn btn-primary" style="margin-top: 1rem;">Bekijk FAQ</button>
+                        </div>
+                        <div class="card">
+                            <h3>Contact</h3>
+                            <p>Neem contact op met support of de community manager.</p>
+                            <button class="btn btn-primary" style="margin-top: 1rem;">Neem Contact Op</button>
                         </div>
                     </div>
                 </div>
